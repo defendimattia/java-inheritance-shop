@@ -31,7 +31,7 @@ public class Televisori extends Prodotto {
         this.height = height;
     }
 
-    public boolean IsSmart() {
+    public boolean isSmart() {
         return this.isSmart;
     }
 

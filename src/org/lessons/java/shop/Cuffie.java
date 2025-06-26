@@ -12,4 +12,19 @@ public class Cuffie extends Prodotto {
         this.isWireless = isWireless;
     }
 
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public boolean isWireless() {
+        return this.isWireless;
+    }
+
+    public void setWireless(boolean isWireless) {
+        this.isWireless = isWireless;
+    }
 }
