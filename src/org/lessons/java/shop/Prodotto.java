@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.util.Random;
 
 public class Prodotto {
     protected String code;
@@ -9,4 +10,15 @@ public class Prodotto {
     protected BigDecimal price;
     protected BigDecimal iva;
 
+    public Prodotto(String name, String brand, BigDecimal price, BigDecimal iva) {
+
+        Random randomNum = new Random();
+        
+        this.code = String.format("%06d", randomNum.nextInt(1000000));
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.iva = iva;
+
+    }
 }
