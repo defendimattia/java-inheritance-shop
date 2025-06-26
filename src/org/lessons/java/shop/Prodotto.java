@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Random;
 
 public class Prodotto {
-    protected int code;
-    protected String name;
-    protected String brand;
-    protected BigDecimal price;
-    protected BigDecimal iva;
+    private int code;
+    private String name;
+    private String brand;
+    private BigDecimal price;
+    private BigDecimal iva;
 
     public Prodotto(String name, String brand, BigDecimal price, BigDecimal iva) {
 
@@ -21,4 +21,42 @@ public class Prodotto {
         this.iva = iva;
 
     }
+
+    public int getCode() {
+        return this.code;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
+    protected String getBrand() {
+        return this.brand;
+    }
+
+    public void setBrand(String newBrand) {
+        this.brand = newBrand;
+    }
+
+    public BigDecimal getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(BigDecimal newPrice) {
+        this.price = newPrice;
+    }
+
+    public BigDecimal getIva() {
+        return this.iva;
+    }
+
+    public void setIva(BigDecimal newIva) {
+        this.iva = newIva;
+    }
+
+
 }
