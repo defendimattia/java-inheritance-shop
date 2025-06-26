@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Random;
 
 public class Prodotto {
-    protected String code;
+    protected int code;
     protected String name;
     protected String brand;
     protected BigDecimal price;
@@ -13,8 +13,8 @@ public class Prodotto {
     public Prodotto(String name, String brand, BigDecimal price, BigDecimal iva) {
 
         Random randomNum = new Random();
-        
-        this.code = String.format("%06d", randomNum.nextInt(1000000));
+
+        this.code = randomNum.nextInt(1000000);
         this.name = name;
         this.brand = brand;
         this.price = price;
