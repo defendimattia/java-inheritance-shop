@@ -27,4 +27,14 @@ public class Cuffie extends Prodotto {
     public void setWireless(boolean isWireless) {
         this.isWireless = isWireless;
     }
+
+    @Override
+    public void setDiscount() {
+        if (!isWireless) {
+            BigDecimal discount = new BigDecimal("0.07");
+            this.price = price.subtract(price.multiply(discount));
+        } else {
+            super.setDiscount();
+        }
+    }
 }

@@ -28,4 +28,14 @@ public class Televisori extends Prodotto {
     public void setSmart(boolean isSmart) {
         this.isSmart = isSmart;
     }
+
+    @Override
+    public void setDiscount() {
+        if (!isSmart) {
+            BigDecimal discount = new BigDecimal("0.1");
+            this.price = price.subtract(price.multiply(discount));
+        } else {
+            super.setDiscount();
+        }
+    }
 }

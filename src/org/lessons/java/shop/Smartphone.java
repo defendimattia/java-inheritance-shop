@@ -27,4 +27,15 @@ public class Smartphone extends Prodotto {
     public void setMemory(int memory) {
         this.memory = memory;
     }
+
+    @Override
+    public void setDiscount() {
+        if (this.memory > 32) {
+            BigDecimal discount = new BigDecimal("0.05");
+            this.price = price.subtract(price.multiply(discount));
+        } else {
+            super.setDiscount();
+        }
+    }
+
 }

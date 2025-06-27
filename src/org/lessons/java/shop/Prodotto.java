@@ -7,7 +7,7 @@ public class Prodotto {
     private int code;
     private String name;
     private String brand;
-    private BigDecimal price;
+    protected BigDecimal price;
     private BigDecimal iva;
 
     public Prodotto(String name, String brand, BigDecimal price, BigDecimal iva) {
