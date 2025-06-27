@@ -58,5 +58,9 @@ public class Prodotto {
         this.iva = newIva;
     }
 
+    public void setDiscount() {
+        BigDecimal discount = new BigDecimal("0.02");
+        this.price = price.subtract(price.multiply(discount));
+    }
 
 }
