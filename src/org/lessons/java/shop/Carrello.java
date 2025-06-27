@@ -86,16 +86,31 @@ public class Carrello {
                 running = false;
             }
         }
+
+        boolean fidelityCard = false;
+        System.out.println("Hai la carta fedeltà? (si/no)");
+        String fidelityCardAnswer = scanner.nextLine();
+
+        if ("si".equalsIgnoreCase(fidelityCardAnswer)) {
+            fidelityCard = true;
+        }
         scanner.close();
 
         System.out.format("Nel carrello hai %d oggetti.%n", cart.length);
+        BigDecimal totalPrice = BigDecimal.ZERO;
 
-        BigDecimal totalPrice = new BigDecimal(0);
-
-        for (int i = 0; i < cart.length; i++) {
-            totalPrice = totalPrice.add(cart[i].getPrice());
+        if (fidelityCard) {
+            for (int i = 0; i < cart.length; i++) {
+                cart[i].setDiscount();
+                totalPrice = totalPrice.add(cart[i].getPrice());
+            }
+            System.out.format("Prezzo totale del carrello con sconto applicato carta fedeltà: %s €.%n", totalPrice);
+        } else {
+            for (int i = 0; i < cart.length; i++) {
+                totalPrice = totalPrice.add(cart[i].getPrice());
+            }
+            System.out.format("Prezzo totale del carrello: %s €.%n", totalPrice);
         }
 
-        System.out.format("Prezzo totale del carrello: %s €.%n", totalPrice);
     }
 }
