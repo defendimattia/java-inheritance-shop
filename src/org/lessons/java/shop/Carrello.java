@@ -88,5 +88,14 @@ public class Carrello {
         }
         scanner.close();
 
+        System.out.format("Nel carrello hai %d oggetti.%n", cart.length);
+
+        BigDecimal totalPrice = new BigDecimal(0);
+
+        for (int i = 0; i < cart.length; i++) {
+            totalPrice = totalPrice.add(cart[i].getPrice());
+        }
+
+        System.out.format("Prezzo totale del carrello: %s €.%n", totalPrice);
     }
 }
