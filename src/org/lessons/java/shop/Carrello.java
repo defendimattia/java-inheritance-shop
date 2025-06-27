@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 public class Carrello {
@@ -104,12 +105,13 @@ public class Carrello {
                 cart[i].setDiscount();
                 totalPrice = totalPrice.add(cart[i].getPrice());
             }
-            System.out.format("Prezzo totale del carrello con sconto applicato carta fedeltà: %s €.%n", totalPrice);
+            System.out.format("Prezzo totale del carrello con sconto applicato carta fedeltà: %s €.%n", totalPrice
+                    .setScale(2, RoundingMode.HALF_UP));
         } else {
             for (int i = 0; i < cart.length; i++) {
                 totalPrice = totalPrice.add(cart[i].getPrice());
             }
-            System.out.format("Prezzo totale del carrello: %s €.%n", totalPrice);
+            System.out.format("Prezzo totale del carrello: %s €.%n", totalPrice.setScale(2, RoundingMode.HALF_UP));
         }
 
     }
