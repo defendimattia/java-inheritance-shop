@@ -3,32 +3,22 @@ package org.lessons.java.shop;
 import java.math.BigDecimal;
 
 public class Televisori extends Prodotto {
-    private int width;
-    private int height;
+    private int inches;
     private boolean isSmart;
 
-    public Televisori(String name, String brand, BigDecimal price, BigDecimal iva, int width, int height,
+    public Televisori(String name, String brand, BigDecimal price, BigDecimal iva, int inches,
             boolean isSmart) {
         super(name, brand, price, iva);
-        this.width = width;
-        this.height = height;
+        this.inches = inches;
         this.isSmart = isSmart;
     }
 
-    public int getWidth() {
-        return this.width;
+    public int getInches() {
+        return this.inches;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    public void setInches(int inches) {
+        this.inches = inches;
     }
 
     public boolean isSmart() {
