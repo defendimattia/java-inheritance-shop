@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Carrello {
     public static void main(String[] args) {
-        Prodotto[] cart;
+        Prodotto[] cart = new Prodotto[0];
         boolean running = true;
 
         Scanner scanner = new Scanner(System.in);
@@ -22,6 +22,8 @@ public class Carrello {
             BigDecimal productPrice = scanner.nextBigDecimal();
             scanner.nextLine();
 
+            Prodotto product = null;
+
             if ("smartphone".equalsIgnoreCase(productType)) {
                 System.out.println("Inserire IMEI dello smartphone");
                 String smartphoneIMEI = scanner.nextLine();
@@ -29,7 +31,7 @@ public class Carrello {
                 int smartphoneGB = scanner.nextInt();
                 scanner.nextLine();
 
-                Smartphone product = new Smartphone(productName, productBrand, productPrice, new BigDecimal("0.22"),
+                product = new Smartphone(productName, productBrand, productPrice, new BigDecimal("0.22"),
                         smartphoneIMEI, smartphoneGB);
 
             } else if ("televisori".equalsIgnoreCase(productType)) {
@@ -45,7 +47,7 @@ public class Carrello {
                     televisionIsSmart = true;
                 }
 
-                Televisori product = new Televisori(productName, productBrand, productPrice, new BigDecimal("0.22"),
+                product = new Televisori(productName, productBrand, productPrice, new BigDecimal("0.22"),
                         televisionInches, televisionIsSmart);
 
             } else if ("cuffie".equalsIgnoreCase(productType)) {
@@ -60,9 +62,21 @@ public class Carrello {
                     headphonesIsWireless = true;
                 }
 
-                Cuffie product = new Cuffie(productName, productBrand, productPrice, new BigDecimal("0.22"),
+                product = new Cuffie(productName, productBrand, productPrice, new BigDecimal("0.22"),
                         headphonesColor, headphonesIsWireless);
 
+            }
+
+            if (product != null) {
+                Prodotto[] newCart = new Prodotto[cart.length + 1];
+
+                for (int i = 0; i < cart.length; i++) {
+                    newCart[i] = cart[i];
+                }
+
+                newCart[cart.length] = product;
+
+                cart = newCart;
             }
 
             System.out.println("Inserire un altro prodotto? (si/no)");
@@ -73,5 +87,6 @@ public class Carrello {
             }
         }
         scanner.close();
+
     }
 }
